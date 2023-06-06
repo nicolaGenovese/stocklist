@@ -1,0 +1,25 @@
+
+.card-header a {
+    display: block;
+    position: relative;
+  }
+  .card-header a:after {
+    content: "\f06e"; 
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 0;
+  }
+  .card-header  a[aria-expanded="true"]:after {
+    content: "\f410"; 
+  }
+
+  .custom-input {
+    height: 30px; /* Adjust the height as desired */
+  }
+
+  .number-input {
+    width: 80px;
+  }
+  .select-input {
+    width: fit-content;
+  }
