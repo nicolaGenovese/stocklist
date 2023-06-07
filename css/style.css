@@ -13,13 +13,18 @@
     content: "\f410"; 
   }
 
+  .items {
+     text-align: center;
+  }
   .custom-input {
     height: 30px; /* Adjust the height as desired */
   }
 
   .number-input {
-    width: 80px;
+    width: fit-content;
+    height: 30px;
   }
   .select-input {
     width: fit-content;
+    height: 30px;
   }
