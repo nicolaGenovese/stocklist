@@ -12,19 +12,28 @@
   .card-header  a[aria-expanded="true"]:after {
     content: "\f410"; 
   }
+  .card-body {
+    padding: 0;
+  }
+
+  .container {
+  padding: 0;
+  }
 
   .items {
-     text-align: center;
+ 
   }
-  .custom-input {
-    height: 30px; /* Adjust the height as desired */
+  .select-input {
+    float: right;
+    width: auto;
+    height: 30px;
   }
 
   .number-input {
-    width: fit-content;
+    float: right;
+    width: 60px;
     height: 30px;
+    margin-left: 5%;
   }
-  .select-input {
-    width: fit-content;
-    height: 30px;
-  }
+
+
