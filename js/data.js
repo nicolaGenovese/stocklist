@@ -1,5 +1,3 @@
-$(document).ready(function() {
-    // DAIRY
 const dairy = [
     'Grated Cheese Bags',
     'Camembert',
@@ -53,7 +51,6 @@ const dairy = [
     'Sausage (raw)',
     'Chicken Supreme (raw)',
     'Cod Fillets (box)',
-    'Salmon Fillets',
     'Honey Baked Ham'
   ];
   
@@ -145,43 +142,5 @@ const dairy = [
     'Yorkshire Puddings',
     'Plain Flour'
   ];
-  
 
-    
-  
-  var categories = [
-    { name: 'dairy', element: $('.card-body-dairy'), items: dairy },
-    { name: 'cleaning', element: $('.card-body-cleaning'), items: cleaning },
-    { name: 'extra', element: $('.card-body-extra'), items: extras },
-    { name: 'meatFish', element: $('.card-body-meat-fish'), items: meatFish },
-    { name: 'leftOverSundayRoast', element: $('.card-body-leftover-sunday-roast'), items: sundayRoastStock },
-    { name: 'pieministerPies', element: $('.card-body-pieminister-pies'), items: pieministerPies },
-    { name: 'fruitVeg', element: $('.card-body-fruit-veg'), items: fruitVegetables },
-    { name: 'driedFrozenSauce', element: $('.card-body-dried-frozen-sauce'), items: driedFrozenSauces }
-  ];
-  
-  categories.forEach(function(category) {
-    var cardBody = category.element;
-    category.items.forEach(function(item) {
-      var paragraph = $(
-        '<br>' +
-        '<p class="items">' +
-        item +
-        '<input class="number-input" type="number">' +
-        '<select class="select-input">' +
-        '<option value="pcs">Pcs</option>' +
-        '<option value="bags">Bags</option>' +
-        '<option value="boxes">Boxes</option>' +
-        '<option value="4-ltr">4 Ltr</option>' +
-        '<option value="2-ltr">2 Ltr</option>' +
-        '<option value="kg">Kg</option>' +
-        '<option value="ltr">Ltr</option>' +
-        '</select>' +
-        '</p>'
-      );
-      cardBody.append(paragraph);
-    });
-  });
-
-
-});
+  export { dairy, cleaning, extras, meatFish, sundayRoastStock, pieministerPies, fruitVegetables, driedFrozenSauces };
