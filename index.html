@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+
+
     <title>Bootstrap Collapse Accordion</title>
  
   </head>
@@ -133,7 +136,32 @@
                     </div>
       </div>
  </div>
- <button id="export-button" class="btn btn-primary">Export to Excel</button>
+ <div class="d-flex justify-content-center">
+  <button id="openAccordionButton" class="btn btn-primary">Export to Excel</button>
+</div>
+ <script>
+$(document).ready(function() {
+  // Add event listener to open accordion button
+  $('#openAccordionButton').on('click', function() {
+    // Open all accordions
+    $('#accordion .collapse').each(function() {
+      $(this).addClass('show');
+    });
+
+    // Get the page content
+    var content = $(document).html();
+
+    // Create a new PDF document
+    var pdf = new jsPDF();
+
+    // Add the page content to the PDF document
+    pdf.text(content);
+
+    // Save the PDF document
+    pdf.save('my_pdf.pdf');
+  });
+});
+</script>
     <!-- Optional JavaScript -->
  
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
