@@ -1,174 +1,45 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Bootstrap CSS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.debug.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://kit.fontawesome.com/73a99dd79c.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynamic Table with jQuery</title>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
-    <title>Stocklist</title>
- 
-  </head>
-  <body id="output">
-    <h3 class="display-3 text-center">Stock List</h3>
-    <div class="container">
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
 
-       <!-- COLLAPSE -->
- 
-
-
- <!-- Accordion -->
-
-      <div id="accordion" role="tablist">
-        <div class=" card m-1">
-          <div class="card-header " role="tab">
-            <h5 class="mb-0">
-              <a data-toggle="collapse" href="#dairy" class="text-decoration-none">Dairy</a>
-            </h5>
-          </div>
-               <div class="collapse " id="dairy" data-parent="#accordion">
-                 <div class="card-body card-body-dairy">    
-                    
-                 </div>
-               </div>
-        </div>
-
-        <div class="card m-1">
-            <div class="card-header" role="tab">
-              <h5 class="mb-0">
-                <a data-toggle="collapse" href="#cleaning" class="text-decoration-none">Cleaning</a>
-              </h5>
-            </div>
-                 <div class="collapse " id="cleaning" data-parent="#accordion">
-                   <div class="card-body card-body-cleaning">
-                    
-                   </div>
-                 </div>
-          </div>
-
-          <div class="card m-1 ">
-              <div class="card-header" role="tab">
-                <h5 class="mb-0">
-                  <a data-toggle="collapse" href="#extra" class="text-decoration-none">Extra</a>
-                </h5>
-              </div>
-                   <div class="collapse " id="extra" data-parent="#accordion">
-                     <div class="card-body card-body-extra">
-                      
-                     </div>
-                   </div>
-            </div>
-
-            <div class="card m-1 ">
-                <div class="card-header" role="tab">
-                  <h5 class="mb-0">
-                    <a data-toggle="collapse" href="#meat-fish" class="text-decoration-none">Meat/Fish</a>
-                  </h5>
-                </div>
-                     <div class="collapse " id="meat-fish" data-parent="#accordion">
-                       <div class="card-body card-body-meat-fish">
-                        
-                       </div>
-                     </div>
-              </div>
-
-              <div class=" card m-1">
-                <div class="card-header " role="tab">
-                  <h5 class="mb-0">
-                    <a data-toggle="collapse" href="#leftover-sunday-roast" class="text-decoration-none">Leftover Sunday roast</a>
-                  </h5>
-                </div>
-                     <div class="collapse " id="leftover-sunday-roast" data-parent="#accordion">
-                       <div class="card-body card-body-leftover-sunday-roast">
-                        
-                       </div>
-                     </div>
-              </div>
-      
-              <div class="card m-1">
-                  <div class="card-header" role="tab">
-                    <h5 class="mb-0">
-                      <a data-toggle="collapse" href="#pieminister-pies" class="text-decoration-none" >Pieminister Pies</a>
-                    </h5>
-                  </div>
-                       <div class="collapse " id="pieminister-pies" data-parent="#accordion">
-                         <div class="card-body card-body-pieminister-pies">
-                          
-                         </div>
-                       </div>
-                </div>
-      
-                <div class="card m-1 ">
-                    <div class="card-header" role="tab">
-                      <h5 class="mb-0">
-                        <a data-toggle="collapse" href="#fruit-veg" class="text-decoration-none">Fruit - Vegetables</a>
-                      </h5>
-                    </div>
-                         <div class="collapse " id="fruit-veg" data-parent="#accordion">
-                           <div class="card-body card-body-fruit-veg">
-                            
-                           </div>
-                         </div>
-                  </div>
-      
-                  <div class="card m-1 ">
-                      <div class="card-header" role="tab">
-                        <h5 class="mb-0">
-                          <a data-toggle="collapse" href="#dried-frozen-sauce" class="text-decoration-none">Dried-Frozen-Sauce</a>
-                        </h5>
-                      </div>
-                           <div class="collapse " id="dried-frozen-sauce" data-parent="#accordion">
-                             <div class="card-body card-body-dried-frozen-sauce">
-                              
-                             </div>
-                           </div>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                      <label for="comment">Note:</label>
-                      <textarea class="form-control" rows="5" id="comment"></textarea>
-                    </div>
-      </div>
- </div>
- <div class="d-flex justify-content-center">
-  <button id="openAccordionButton" class="btn btn-primary" onclick="generate()">Export to Excel</button>
-</div>
- <script>
-$(document).ready(function() {
-  // Add event listener to open accordion button
-  $('#openAccordionButton').on('click', function() {
-    // Open all accordions
-    $('#accordion .collapse').each(function() {
-      $(this).addClass('show');
-    });
-
-  });
-  document.getElementById('openAccordionButton').addEventListener('click', function() {
-    // Nasconde il pulsante per evitare che venga incluso nella versione PDF
-    this.style.display = 'none';
-
-    // Avvia la funzione di stampa del browser
-    window.print();
-
-    // Mostra nuovamente il pulsante dopo 1 secondo
-    setTimeout(function() {
-      document.getElementById('openAccordionButton').style.display = 'block';
-    }, 1000);
-  });
-});
-</script>
-
-    <!-- Optional JavaScript -->
- 
-
-    <script src="./js/js.js"></script>
-  </body>
+button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<table id="dynamicTable">
+  <thead>
+    <tr>
+      <th colspan="3">Name</th>
+    </tr>
+    <tr>
+      <th>Item</th>
+      <th>Amount</th>
+      <th>Package</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<button onclick="downloadTable()">Download Table</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="./js/js.js"></script>
+</body>
 </html>
-

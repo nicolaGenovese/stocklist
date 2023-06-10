@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    // DAIRY
-const dairy = [
+  const dairy = [
     'Grated Cheese Bags',
     'Camembert',
     'Goats Cheese',
@@ -12,8 +11,7 @@ const dairy = [
     'Eggs',
     'Ice Cream (Tubs)'
   ];
-  
-  // CLEANING
+
   const cleaning = [
     'All Purpose Floor Cleaner',
     'Heavy Duty Degreaser',
@@ -25,8 +23,7 @@ const dairy = [
     'Sponges',
     'Heavy Duty Bin Bags'
   ];
-  
-  // EXTRAS
+
   const extras = [
     'Napkins (bar)',
     'Paper Sauce Pots',
@@ -41,8 +38,7 @@ const dairy = [
     'Smoked Paprika',
     'Dried Parsley'
   ];
-  
-  // MEAT / FISH
+
   const meatFish = [
     'Beef Burgers',
     'Lamb Burgers',
@@ -53,11 +49,9 @@ const dairy = [
     'Sausage (raw)',
     'Chicken Supreme (raw)',
     'Cod Fillets (box)',
-    'Salmon Fillets',
     'Honey Baked Ham'
   ];
-  
-  // LEFTOVER SUNDAY ROAST STOCK
+
   const sundayRoastStock = [
     'Chicken Supreme (Frozen)',
     'Roast Beef joint (Frozen)',
@@ -65,8 +59,7 @@ const dairy = [
     'Pork Stuffing (Frozen)',
     'Vegetable Lentil Loaf (Frozen)'
   ];
-  
-  // PIEMINISTER PIES
+
   const pieministerPies = [
     'Moo beef & ale',
     'Free Ranger',
@@ -76,8 +69,7 @@ const dairy = [
     'Mock-a-Doodle (vegan)',
     'Heidi (vegetarian)'
   ];
-  
-  // FRUIT VEGETABLES
+
   const fruitVegetables = [
     'Mushrooms',
     'Lemons',
@@ -94,8 +86,7 @@ const dairy = [
     'Tenderstem Brocolli',
     'Parsnips'
   ];
-  
-  // DRIED / FROZEN / SAUCES
+
   const driedFrozenSauces = [
     'Meat-Free Vegan Burgers',
     'Pumpkin Spinach Vegan Burgers',
@@ -145,43 +136,39 @@ const dairy = [
     'Yorkshire Puddings',
     'Plain Flour'
   ];
-  
 
-    
-  
-  var categories = [
-    { name: 'dairy', element: $('.card-body-dairy'), items: dairy },
-    { name: 'cleaning', element: $('.card-body-cleaning'), items: cleaning },
-    { name: 'extra', element: $('.card-body-extra'), items: extras },
-    { name: 'meatFish', element: $('.card-body-meat-fish'), items: meatFish },
-    { name: 'leftOverSundayRoast', element: $('.card-body-leftover-sunday-roast'), items: sundayRoastStock },
-    { name: 'pieministerPies', element: $('.card-body-pieminister-pies'), items: pieministerPies },
-    { name: 'fruitVeg', element: $('.card-body-fruit-veg'), items: fruitVegetables },
-    { name: 'driedFrozenSauce', element: $('.card-body-dried-frozen-sauce'), items: driedFrozenSauces }
-  ];
-  
-  categories.forEach(function(category) {
-    var cardBody = category.element;
-    category.items.forEach(function(item) {
-      var paragraph = $(
-        '<br>' +
-        '<p class="items">' +
-        item +
-        '<input class="number-input" type="number">' +
-        '<select class="select-input">' +
-        '<option value="pcs">Pcs</option>' +
-        '<option value="bags">Bags</option>' +
-        '<option value="boxes">Boxes</option>' +
-        '<option value="4-ltr">4 Ltr</option>' +
-        '<option value="2-ltr">2 Ltr</option>' +
-        '<option value="kg">Kg</option>' +
-        '<option value="ltr">Ltr</option>' +
-        '</select>' +
-        '</p>'
-      );
-      cardBody.append(paragraph);
-    });
+  var tableBody = $('#dynamicTable tbody');
+
+function populateTable(array, sectionName) {
+  var sectionHeader = $('<tr>').append($('<th colspan="3">').text(sectionName));
+  tableBody.append(sectionHeader);
+
+  $.each(array, function(index, item) {
+    var row = $('<tr>');
+    row.append($('<td>').text(item));
+    row.append($('<td>').append('<input type="number" name="amount[]">'));
+    row.append($('<td>').append('<select name="package[]"><option value="Option 1">Option 1</option><option value="Option 2">Option 2</option><option value="Option 3">Option 3</option></select>'));
+    tableBody.append(row);
   });
+}
 
+populateTable(dairy, 'Dairy');
+populateTable(cleaning, 'Cleaning');
+populateTable(extras, 'Extras');
+populateTable(meatFish, 'Meat / Fish');
+populateTable(sundayRoastStock, 'Leftover Sunday Roast Stock');
+populateTable(pieministerPies, 'Pieminister Pies');
+populateTable(fruitVegetables, 'Fruit Vegetables');
+populateTable(driedFrozenSauces, 'Dried / Frozen / Sauces');
 
+  function downloadTable() {
+    var element = document.querySelector("#dynamicTable");
+
+    html2pdf()
+
+      .from(element)
+      .save();
+  }
+
+  window.downloadTable = downloadTable;
 });
