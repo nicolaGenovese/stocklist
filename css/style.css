@@ -1,39 +1,23 @@
+table {
+  border-collapse: collapse;
+  width: 100%; /* Assicurati che la tabella occupi tutto lo spazio disponibile */
+  break-inside: avoid; /* Evita il "frammento di tabella" tra le colonne */
+}
 
-.card-header a {
-    display: block;
-    position: relative;
-  }
-  .card-header a:after {
-    content: "\f06e"; 
-    font-family: 'FontAwesome';
-    position: absolute;
-    right: 0;
-  }
-  .card-header  a[aria-expanded="true"]:after {
-    content: "\f410"; 
-  }
-  .card-body {
-    padding: 0;
-  }
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
 
-  .items {
-    padding-left: 10px;
-    
-    
-  }
-  .select-input {
-    position: absolute;
-    right: 10%;
-    width: auto;
-    height: 30px;
-  }
+button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
 
-  .number-input {
-   position: absolute;
-   right: 30%;
-    width: 60px;
-    height: 30px;
-    margin-left: 5%;
-  }
-
+.table-container {
+text-align: center;
+}
 

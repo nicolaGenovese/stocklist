@@ -136,6 +136,7 @@ $(document).ready(function() {
     'Yorkshire Puddings',
     'Plain Flour'
   ];
+  
 
   var tableBody = $('#dynamicTable tbody');
 
@@ -161,14 +162,4 @@ populateTable(pieministerPies, 'Pieminister Pies');
 populateTable(fruitVegetables, 'Fruit Vegetables');
 populateTable(driedFrozenSauces, 'Dried / Frozen / Sauces');
 
-  function downloadTable() {
-    var element = document.querySelector("#dynamicTable");
-
-    html2pdf()
-
-      .from(element)
-      .save();
-  }
-
-  window.downloadTable = downloadTable;
 });

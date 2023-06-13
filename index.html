@@ -2,44 +2,31 @@
 <html>
 <head>
 <title>Dynamic Table with jQuery</title>
-<style>
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
-  border: 1px solid black;
-  padding: 8px;
-}
-
-button {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-</style>
+<link rel="stylesheet" href="./css/style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js"></script>
 </head>
 <body>
+<div class="table-container">  
 <table id="dynamicTable">
   <thead>
     <tr>
-      <th colspan="3">Name</th>
+      <th colspan="3">Stocklist</th>
     </tr>
     <tr>
       <th>Item</th>
       <th>Amount</th>
+      <th>Package</th>
       <th>Package</th>
     </tr>
   </thead>
   <tbody>
   </tbody>
 </table>
-<button onclick="downloadTable()">Download Table</button>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</div>
+
+<button onclick="downloadWebpageAsImage()">Download Table</button>
 <script src="./js/js.js"></script>
+<script src="./js/png.js"></script>
 </body>
 </html>
