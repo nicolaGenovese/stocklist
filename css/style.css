@@ -7,6 +7,6 @@ input[type="number"]{
 }
 
 input[type="text"]{
-    width: 400px;
+    width: 100%;
     
 }
