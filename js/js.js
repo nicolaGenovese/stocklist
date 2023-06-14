@@ -141,14 +141,15 @@ $(document).ready(function() {
   var tableBody = $('#dynamicTable tbody');
 
 function populateTable(array, sectionName) {
-  var sectionHeader = $('<tr>').append($('<th colspan="3">').text(sectionName));
+  var sectionHeader = $('<tr>').append($('<th colspan="4">').text(sectionName));
   tableBody.append(sectionHeader);
 
   $.each(array, function(index, item) {
     var row = $('<tr>');
     row.append($('<td>').text(item));
     row.append($('<td>').append('<input type="number" name="amount[]">'));
-    row.append($('<td>').append('<select name="package[]"><option value="Option 1">Option 1</option><option value="Option 2">Option 2</option><option value="Option 3">Option 3</option></select>'));
+    row.append($('<td>').append('<select name="package[]"><option value="pcs">Pcs</option><option value="bags">Bags</option><option value="box">Box</option><option value="1l-container">1l-Container</option><option value="2l-container">2l-Container</option><option value="value="4l-container">4l-container</option><option value="tank">Tank</option><option value="liters">Liters</option><option value="Kg">Kg</option></select>'));
+    row.append($('<td>').append('<input type="text" name="notes">'));
     tableBody.append(row);
   });
 }

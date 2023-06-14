@@ -1,23 +1,12 @@
-table {
-  border-collapse: collapse;
-  width: 100%; /* Assicurati che la tabella occupi tutto lo spazio disponibile */
-  break-inside: avoid; /* Evita il "frammento di tabella" tra le colonne */
+td {
+    width: 30px;
 }
 
-th, td {
-  border: 1px solid black;
-  padding: 8px;
+input[type="number"]{
+    width: 60px;
 }
 
-button {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
+input[type="text"]{
+    width: 100%;
+    
 }
-
-.table-container {
-text-align: center;
-}
-
