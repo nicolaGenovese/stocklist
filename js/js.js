@@ -148,7 +148,7 @@ function populateTable(array, sectionName) {
     var row = $('<tr>');
     row.append($('<td>').text(item));
     row.append($('<td>').append('<input type="number" name="amount[]">'));
-    row.append($('<td>').append('<select name="package[]"><option value="pcs">Pcs</option><option value="bags">Bags</option><option value="box">Box</option><option value="1l-container">1l-Container</option><option value="2l-container">2l-Container</option><option value="value="4l-container">4l-container</option><option value="tank">Tank</option><option value="liters">Liters</option><option value="Kg">Kg</option></select>'));
+    row.append($('<td>').append('<select name="package[]"><option value="pcs">Pcs</option><option value="bags">Bags</option><option value="box">Box</option><option value="1l-container">1l-Box</option><option value="2l-container">2l-Box</option><option value="value="4l-container">4l-Box</option><option value="tank">Tank</option><option value="liters">Liters</option><option value="Kg">Kg</option></select>'));
     row.append($('<td>').append('<input type="text" name="notes">'));
     tableBody.append(row);
   });
