@@ -141,7 +141,7 @@ $(document).ready(function() {
   var tableBody = $('#dynamicTable tbody');
 
 function populateTable(array, sectionName) {
-  var sectionHeader = $('<tr>').append($('<th colspan="4">').text(sectionName));
+  var sectionHeader = $('<tr class="bg-success">').append($('<th colspan="4">').text(sectionName));
   tableBody.append(sectionHeader);
 
   $.each(array, function(index, item) {
